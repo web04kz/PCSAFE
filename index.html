@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PC CHECKER — проверка ПК и игр</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="topbar">
+  <button id="menuBtn" class="icon-btn" aria-label="Меню">☰</button>
+  <a class="brand" href="#/home"><img src="assets/logo.svg" alt="" width="28" height="28"><span>PC CHECKER</span></a>
+  <form id="searchForm" class="search" role="search">
+    <input id="searchInput" type="search" placeholder="Найти игру…" maxlength="80" aria-label="Поиск игры" required>
+  </form>
+  <button id="themeBtn" class="icon-btn" aria-label="Сменить тему">🌓</button>
+  <a class="icon-btn" href="#/settings" aria-label="Настройки">⚙</a>
+</header>
+
+<nav id="sidebar" class="sidebar" aria-label="Основное меню">
+  <a href="#/home" data-route="home"><i>🏠</i><span>Главная</span></a>
+  <a href="#/games" data-route="games"><i>🎮</i><span>Проверка игр</span></a>
+  <a href="#/fps" data-route="fps"><i>📈</i><span>Калькулятор FPS</span></a>
+  <a href="#/rate" data-route="rate"><i>🧮</i><span>Оценка ПК</span></a>
+  <a href="#/hardware" data-route="hardware"><i>🧩</i><span>Каталог железа</span></a>
+  <a href="#/history" data-route="history"><i>🕘</i><span>История</span></a>
+  <a href="#/settings" data-route="settings"><i>⚙</i><span>Настройки</span></a>
+  <button id="collapseBtn" class="collapse" type="button"><i>«</i><span>Свернуть</span></button>
+</nav>
+<div id="overlay" class="overlay"></div>
+
+<main id="content">
+  <section class="page" data-page="home">
+    <div class="hero">
+      <h1>PC CHECKER</h1>
+      <p>Проверьте, потянет ли ваш компьютер игру, оцените его мощность и узнайте слабые места. Всё работает в браузере, данные не уходят на сервер.</p>
+      <div class="actions">
+        <a class="btn primary" href="#/rate">Проверить компьютер</a>
+        <a class="btn" href="#/games">Проверить игру</a>
+      </div>
+    </div>
+    <h2>Популярные игры</h2>
+    <div id="popularGames" class="grid"><div class="empty">Список появится после подключения источника данных (часть 3). Показываем только игры с реальными системными требованиями.</div></div>
+    <h2>Возможности</h2>
+    <div class="grid">
+      <article class="card"><h3>🎮 Проверка игр</h3><p>Поиск игры и сравнение её требований с вашим ПК.</p></article>
+      <article class="card"><h3>📈 Оценка FPS</h3><p>Примерный FPS с пометкой «Расчётная оценка», если нет реальных тестов.</p></article>
+      <article class="card"><h3>🧮 Оценка ПК</h3><p>Баллы 0–100 для CPU, GPU, RAM и накопителя.</p></article>
+      <article class="card"><h3>🧩 Каталог железа</h3><p>Процессоры и видеокарты с указанием источника данных.</p></article>
+    </div>
+    <h2>Последние проверки</h2>
+    <div id="recentChecks" class="list"></div>
+  </section>
+
+  <section class="page" data-page="games" hidden><h1>Проверка игр</h1><div class="empty">Раздел будет подключён в части 3: поиск, обложки и системные требования.</div></section>
+  <section class="page" data-page="fps" hidden><h1>Калькулятор FPS</h1><div class="empty">Раздел будет подключён в части 6.</div></section>
+  <section class="page" data-page="rate" hidden><h1>Оценка ПК</h1><div class="empty">Раздел будет подключён в части 5 (вместе с автоопределением характеристик).</div></section>
+  <section class="page" data-page="hardware" hidden><h1>Каталог железа</h1><div class="empty">Раздел будет подключён в части 4.</div></section>
+  <section class="page" data-page="history" hidden><h1>История</h1><div id="historyList" class="list"></div><button id="clearHistory" class="btn" type="button">Очистить историю</button></section>
+  <section class="page" data-page="settings" hidden>
+    <h1>Настройки</h1>
+    <div class="card"><label class="row"><span>Тёмная тема</span><input type="checkbox" id="themeToggle"></label>
+    <label class="row"><span>Свёрнутое боковое меню</span><input type="checkbox" id="collapseToggle"></label>
+    <button id="clearAll" class="btn" type="button">Очистить все локальные данные</button></div>
+  </section>
+  <section class="page" data-page="notfound" hidden><h1>Страница не найдена</h1><a class="btn" href="#/home">На главную</a></section>
+</main>
+<script type="module" src="app.js"></script>
+</body>
+</html>
